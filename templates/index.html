@@ -1,42 +1,86 @@
-<!--&lt;!&ndash; Home Page (index.html) &ndash;&gt;-->
-<!--<html>-->
-<!--<body>-->
-<!--    <h1>Welcome to Face Recognition System</h1>-->
-<!--    <button onclick="window.location.href='/register'">Register</button>-->
-<!--    <button onclick="window.location.href='/login'">Login</button>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Recognition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/styles.css">
     <style>
-        .h1{
-
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
         }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        .message {
+            font-style: italic;
+            color: #888;
+        }
+        .p {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 25px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip : text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
     </style>
 </head>
 <body>
-    <h1>Face Recognition</h1>
-<!--     <form action="/add_face" method="POST">  &lt;!&ndash; Change method to GET &ndash;&gt;-->
-<!--        <label for="name">Enter your name:</label>-->
-<!--        <input type="text" id="name" name="name" required>-->
-<!--        <button type="submit">Add face</button>-->
-<!--    </form>-->
+    <div class="container">
+        <div class="p">
+                  <h1>Face Recognition System</h1>
+        </div>
+        <form action="/recognize_face" method="POST" >
+            <button type="submit">Recognize Face</button>
+        </form>
+<!--       <h1 id="message" class="message">{% if message %}{{ message }}{% endif %}</h1>-->
+        <h1 class="message">To add new faces to the database, please login first.</h1>
+        <form action="/home_page" method="POST">
+            <button type="submit">Home</button>
+        </form>
 
-    <form action="/recognize_face" method="POST">
-        <button type="submit">Recognize Face</button>
-    </form>
-<h1>To add new faces to database Login first</h1>
-    <form action="/home_page" method="POST">
-        <button type="submit">Home</button>
-    </form>
+    </div>
 
-<!--    <div class="button-container">-->
-<!--        <h1>To add a new face, you need to log in first</h1>-->
-<!--        <a class="btn btn-primary" align="left" href="http://127.0.0.1:5000/homepage.html" role="button">Home</a>-->
-<!--    </div>-->
+
+
 </body>
 </html>

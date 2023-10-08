@@ -1,19 +1,37 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Face Recognition</title>
-     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <!-- Use the 'serve_static' route to reference the CSS file -->
-       <style>
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
         /* Reset some default styles */
         body, ul, li, p, h1, h2, h3 {
             margin: 0;
             padding: 0;
         }
 
-        /* Style the navigation bar */
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        /* Navigation styles */
         nav {
             background-color: #333;
             color: white;
@@ -22,115 +40,95 @@
 
         nav ul {
             list-style-type: none;
+            text-align: center;
         }
 
         nav ul li {
             display: inline;
-            margin-right: 10px;
+            margin-right: 20px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: white;
             font-weight: bold;
-        }
-
-        /* Dashboard styles */
-        .dashboard {
-            background-color: #222;
-            color: white;
-            width: 150px;
-            padding: 30px;
-            position: fixed;
-            top: 35px;
-            left: 0;
-            height: 80%;
-            overflow-y: auto;
-        }
-
-        .dashboard h2 {
-            color: cyan;
-        }
-
-        .dashboard ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .dashboard li {
-            margin-bottom: 10px;
-        }
-
-        .dashboard a {
-            text-decoration: none;
-            color: cyan;
-            display: block;
+            font-size: 18px;
         }
 
         /* Main content styles */
         .main-content {
-            margin-left: 250px;
-            margin-top: 30px;
+            margin: 30px auto;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
 
-        /* Button styles */
-        .button-container {
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Form styles */
+        form {
             margin-top: 20px;
         }
 
-        .button-container button {
+        label {
+            font-size: 18px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
             background-color: #007BFF;
             color: white;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
-            display: block;
-            margin-bottom: 10px;
+            font-size: 18px;
+            border-radius: 5px;
         }
 
-        .button-container button:hover {
+        button[type="submit"]:hover {
             background-color: #0056b3;
+        }
+
+        /* Message styles */
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+            color: green;
         }
     </style>
 </head>
 <body>
-<h1>Face Recognition</h1>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/Our_team.html">Our Team</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </nav>
-    <div class="dashboard">
-        <h2>Dashboard</h2>
-<!--        <ul>-->
-<!--            <li><a href="#">Dashboard Item 1</a></li>-->
-<!--            <li><a href="#">Dashboard Item 2</a></li>-->
-<!--            <li><a href="#">Dashboard Item 3</a></li>-->
-<!--            &lt;!&ndash; Add more dashboard items as needed &ndash;&gt;-->
-<!--        </ul>-->
-    </div>
-   <div class="main-content">
+<header>
+    <h1>Face Recognition</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/ourteam">Our Team</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+<div class="main-content">
     <h1>Welcome to Face Recognition System</h1>
-   <form action="/add_face" method="POST">  <!-- Change method to GET -->
+    <form action="/add_face" method="POST">
         <label for="name">Enter your name:</label>
         <input type="text" id="name" name="name" required>
         <button type="submit">Add face</button>
     </form>
-
-<!--    <form action="/recognize_face" method="POST">-->
-<!--        <button type="submit">Recognize Face</button>-->
-<!--    </form>-->
-<!--</div>-->
-
-
-
-
-    {% if message %}
-    <p>{{ message }}</p>
-    {% endif %}
-   </div>
+</div>
 </body>
 </html>

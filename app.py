@@ -37,11 +37,16 @@ def add_face():
 # ... (other routes)
 @app.route('/recognize_face', methods=['POST'])
 def recognize_face():
+    message = None
     try:
         subprocess.run(["python", "recognition.py"])
-        return render_template('index.html', message='Face recognition started successfully!')
+        # message=f'Face Recognition started'
+
     except Exception as e:
-        return render_template('index.html', message=f'Error running recognition: {str(e)}')
+        message=f'Error running recognition: {str(e)}'
+
+    return render_template('index.html', message=message)
+
 # Login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -87,6 +92,13 @@ def logout():
 def landing():
     if 'username' in session:
         return render_template('landing.html')
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/ourteam')
+def ourteam():
+    if 'username' in session:
+        return render_template('ourteam.html')
     else:
         return redirect(url_for('login'))
 
