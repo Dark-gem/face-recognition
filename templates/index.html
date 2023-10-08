@@ -1,0 +1,42 @@
+<!--&lt;!&ndash; Home Page (index.html) &ndash;&gt;-->
+<!--<html>-->
+<!--<body>-->
+<!--    <h1>Welcome to Face Recognition System</h1>-->
+<!--    <button onclick="window.location.href='/register'">Register</button>-->
+<!--    <button onclick="window.location.href='/login'">Login</button>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <style>
+        .h1{
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Face Recognition</h1>
+<!--     <form action="/add_face" method="POST">  &lt;!&ndash; Change method to GET &ndash;&gt;-->
+<!--        <label for="name">Enter your name:</label>-->
+<!--        <input type="text" id="name" name="name" required>-->
+<!--        <button type="submit">Add face</button>-->
+<!--    </form>-->
+
+    <form action="/recognize_face" method="POST">
+        <button type="submit">Recognize Face</button>
+    </form>
+<h1>To add new faces to database Login first</h1>
+    <form action="/home_page" method="POST">
+        <button type="submit">Home</button>
+    </form>
+
+<!--    <div class="button-container">-->
+<!--        <h1>To add a new face, you need to log in first</h1>-->
+<!--        <a class="btn btn-primary" align="left" href="http://127.0.0.1:5000/homepage.html" role="button">Home</a>-->
+<!--    </div>-->
+</body>
+</html>
