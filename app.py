@@ -102,12 +102,6 @@ def ourteam():
     else:
         return redirect(url_for('login'))
 
-# Function to execute a script by name
 
-# @app.route('/add_face', methods=['POST'])
-# def add_face():
-#     name = request.form['name']  # Get the name from the form
-#     # capture_and_store_face_data(name)  # Call the function to capture and store facial data
-#     return render_template('index.html', message='Face data captured successfully!')
 if __name__ == '__main__':
     app.run(debug=True)
